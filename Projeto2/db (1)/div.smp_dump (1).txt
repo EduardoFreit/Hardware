@@ -1,0 +1,6 @@
+
+State Machine - |div|estado
+Name estado.N_DIV estado.END_DIV estado.DIV 
+estado.N_DIV 0 0 0 
+estado.DIV 1 0 1 
+estado.END_DIV 1 1 0 

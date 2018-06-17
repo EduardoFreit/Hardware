@@ -1,0 +1,55 @@
+module mult (input logic Clk, Reset, iniciar, sinal, input logic[31:0] cador, cando, output logic[63:0] saida, output logic multiplicando);
+	
+	enum logic [1:0] {N_MULT, MULT, END_MULT} estado;
+	logic [63:0] produto;
+	logic [5:0] cont;
+	
+	always_ff@(posedge Clk, posedge Reset)begin
+		if(Reset) begin
+			estado <= N_MULT;
+			produto <= 64'd0;
+			cont <= 5'd0;
+		end
+		else begin
+			if(iniciar)	begin
+				if(cont < 32)begin
+					estado <= MULT;
+					if(cando[cont] == 1'b1)
+						produto <= produto + (cador << cont);
+					else
+						produto <= produto + 64'd0;
+					cont <= cont + 6'b000001;
+					
+				end
+				else
+					estado <= END_MULT;
+			end
+			else begin
+				estado <= N_MULT;
+				produto <= 64'd0;
+				cont <= 5'd0;
+			end
+		end
+	end
+	always_comb begin
+		case(estado)
+			N_MULT: begin
+				multiplicando = 1;
+				saida = 64'd0;	
+			end
+			MULT:begin
+				multiplicando = 1;
+				saida = 64'd0;
+			end
+			END_MULT:begin
+				multiplicando = 0;
+				if(sinal == 1) 
+					saida = ~(produto) + 64'd1;
+				else begin					
+					saida = produto;
+					saida[63] = sinal;
+				end
+			end
+		endcase
+	end
+endmodule: mult

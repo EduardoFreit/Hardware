@@ -1,0 +1,74 @@
+module div (input logic Clk, Reset, iniciar, sinal, input logic[31:0] Dvdendo, Divsor, output logic[31:0] quociente, resto, QUO, RES,DIVS, output logic dividindo, output logic[1:0] ESTADO);
+	
+	enum logic [1:0] {N_DIV, DIV, END_DIV} estado;
+	logic [31:0] Quociente, Resto, Divisor;
+	logic [6:0] cont;
+	assign ESTADO = estado;
+	assign QUO = Quociente;
+	assign RES = Resto;
+	assign DIVS = Divisor;
+	
+	always_ff @ (posedge Clk, posedge Reset)begin
+		if(Reset) begin
+			estado <= N_DIV;
+			Quociente <= 32'd0;
+			Resto <= -2;
+			Divisor <= 32'd0;
+			cont <= 6'd0;			
+		end
+		else begin
+			if(iniciar)	begin
+				estado <= DIV;
+				Divisor = Divsor;
+				Resto <= -2;			
+				if (cont < 33) begin					
+					if(Resto < 32'd0) begin
+						Resto <= -2;
+						Quociente = (Quociente << 1) + 32'd0;
+					end
+					if (Resto >= 32'd0) begin
+						Quociente = (Quociente << 1);
+						Quociente = Quociente + 1;
+					end
+					Divisor = Divisor >>> 1;
+					cont <= cont + 6'd1;					
+				end
+				else begin
+					estado <= END_DIV;
+				end
+			end
+			else begin
+				estado <= N_DIV;
+				Quociente <= 32'd0;
+				Resto <= 32'd0;
+				Divisor <= 32'd0;
+				cont <= 6'd0;
+			end
+		end
+	end
+	always_comb begin
+		case(estado)
+			N_DIV: begin
+				dividindo = 1;
+				quociente = 32'd0;
+				resto = 32'd0;
+			end
+			DIV:begin
+				dividindo = 1;
+				quociente = 32'd0;
+				resto = 32'd0;
+			end
+			END_DIV:begin
+				dividindo = 0;
+				if(sinal == 1) begin
+					quociente = ~(Quociente) + 32'd1;
+					resto = ~(Resto) + 32'd1;;
+				end
+				else begin					
+					quociente = Quociente;
+					resto = Resto;
+				end
+			end
+		endcase
+	end
+endmodule: div

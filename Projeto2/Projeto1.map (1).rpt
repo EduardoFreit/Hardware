@@ -1,0 +1,995 @@
+Analysis & Synthesis report for Projeto1
+Sat May 19 12:52:39 2018
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |Projeto1|div:divis|estado
+ 10. State Machine - |Projeto1|mult:multip|estado
+ 11. State Machine - |Projeto1|Controle:contr|estado
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for Memoria:Memor|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated
+ 16. Source assignments for Memoria:Memor|LPM_RAM_DQ:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated
+ 17. Source assignments for Memoria:Memor|LPM_RAM_DQ:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated
+ 18. Source assignments for Memoria:Memor|LPM_RAM_DQ:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated
+ 19. Parameter Settings for User Entity Instance: Memoria:Memor|LPM_RAM_DQ:MEM
+ 20. Parameter Settings for User Entity Instance: Memoria:Memor|LPM_RAM_DQ:MEM_plus_One
+ 21. Parameter Settings for User Entity Instance: Memoria:Memor|LPM_RAM_DQ:MEM_plus_Two
+ 22. Parameter Settings for User Entity Instance: Memoria:Memor|LPM_RAM_DQ:MEM_plus_Three
+ 23. Parameter Settings for User Entity Instance: muX4:muxZero
+ 24. Parameter Settings for User Entity Instance: muX4:muxMemData
+ 25. Parameter Settings for User Entity Instance: muX4:RegWr
+ 26. Parameter Settings for User Entity Instance: mux3:muxA
+ 27. Parameter Settings for User Entity Instance: mux3:muxN
+ 28. Parameter Settings for User Entity Instance: mux2:muxRS
+ 29. Parameter Settings for User Entity Instance: mux2:muxMFHI
+ 30. Parameter Settings for User Entity Instance: mux2:muxMFLO
+ 31. Parameter Settings for User Entity Instance: mux2:regEntr
+ 32. Port Connectivity Checks: "concat_jmp:concat"
+ 33. Port Connectivity Checks: "mux2:muxRS"
+ 34. Port Connectivity Checks: "mux3:muxA"
+ 35. Port Connectivity Checks: "muX4:RegWr"
+ 36. Port Connectivity Checks: "mux4:muxB"
+ 37. Port Connectivity Checks: "mux5:muxPC"
+ 38. Port Connectivity Checks: "mux6:muxALU"
+ 39. Port Connectivity Checks: "mux11:WrData"
+ 40. Port Connectivity Checks: "Ula32:Ula"
+ 41. Port Connectivity Checks: "desloEsq28:jmp"
+ 42. Port Connectivity Checks: "Controle:contr"
+ 43. Analysis & Synthesis Messages
+ 44. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++------------------------------------+----------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat May 19 12:52:39 2018        ;
+; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
+; Revision Name                      ; Projeto1                                     ;
+; Top-level Entity Name              ; Projeto1                                     ;
+; Family                             ; Cyclone II                                   ;
+; Total logic elements               ; 5,200                                        ;
+;     Total combinational functions  ; 4,083                                        ;
+;     Dedicated logic registers      ; 1,643                                        ;
+; Total registers                    ; 1643                                         ;
+; Total pins                         ; 372                                          ;
+; Total virtual pins                 ; 0                                            ;
+; Total memory bits                  ; 8,192                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                            ;
+; Total PLLs                         ; 0                                            ;
++------------------------------------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C70F896C6       ;                    ;
+; Top-level entity name                                                      ; Projeto1           ; Projeto1           ;
+; Family name                                                                ; Cyclone II         ; Stratix II         ;
+; Use Generated Physical Constraints File                                    ; Off                ;                    ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report                         ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2-4 processors         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                 ;
++----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                   ;
++----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------+
+; instrucoes.mif                   ; yes             ; User Memory Initialization File  ; C:/Users/jclc/Desktop/Projeto2/instrucoes.mif                  ;
+; Projeto1.sv                      ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/Projeto1.sv                     ;
+; Controle.sv                      ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/Controle.sv                     ;
+; Memoria.vhd                      ; yes             ; User VHDL File                   ; C:/Users/jclc/Desktop/Projeto2/Memoria.vhd                     ;
+; Instr_Reg.vhd                    ; yes             ; User VHDL File                   ; C:/Users/jclc/Desktop/Projeto2/Instr_Reg.vhd                   ;
+; Banco_reg.vhd                    ; yes             ; User VHDL File                   ; C:/Users/jclc/Desktop/Projeto2/Banco_reg.vhd                   ;
+; ula32.vhd                        ; yes             ; User VHDL File                   ; C:/Users/jclc/Desktop/Projeto2/ula32.vhd                       ;
+; RegDesloc.vhd                    ; yes             ; User VHDL File                   ; C:/Users/jclc/Desktop/Projeto2/RegDesloc.vhd                   ;
+; div.sv                           ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/div.sv                          ;
+; mult.sv                          ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/mult.sv                         ;
+; mux2.sv                          ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/mux2.sv                         ;
+; mux3.sv                          ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/mux3.sv                         ;
+; mux4.sv                          ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/mux4.sv                         ;
+; muX_4.sv                         ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/muX_4.sv                        ;
+; mux5.sv                          ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/mux5.sv                         ;
+; mux6.sv                          ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/mux6.sv                         ;
+; mux11.sv                         ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/mux11.sv                        ;
+; desloEsq28.sv                    ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/desloEsq28.sv                   ;
+; desloEsq32.sv                    ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/desloEsq32.sv                   ;
+; complemento2.sv                  ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/complemento2.sv                 ;
+; Registrador.vhd                  ; yes             ; User VHDL File                   ; C:/Users/jclc/Desktop/Projeto2/Registrador.vhd                 ;
+; SinalExtendido.sv                ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/SinalExtendido.sv               ;
+; concat_jmp.sv                    ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/concat_jmp.sv                   ;
+; ANND.sv                          ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/ANND.sv                         ;
+; ORR.sv                           ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/ORR.sv                          ;
+; XORR.sv                          ; yes             ; User SystemVerilog HDL File      ; C:/Users/jclc/Desktop/Projeto2/XORR.sv                         ;
+; lpm_ram_dq.tdf                   ; yes             ; Megafunction                     ; c:/altera/91sp2/quartus/libraries/megafunctions/lpm_ram_dq.tdf ;
+; altram.tdf                       ; yes             ; Megafunction                     ; c:/altera/91sp2/quartus/libraries/megafunctions/altram.tdf     ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/altera/91sp2/quartus/libraries/megafunctions/altsyncram.tdf ;
+; db/altsyncram_e1a1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/jclc/Desktop/Projeto2/db/altsyncram_e1a1.tdf          ;
++----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 5,200 ;
+;                                             ;       ;
+; Total combinational functions               ; 4083  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 2731  ;
+;     -- 3 input functions                    ; 1004  ;
+;     -- <=2 input functions                  ; 348   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 3673  ;
+;     -- arithmetic mode                      ; 410   ;
+;                                             ;       ;
+; Total registers                             ; 1643  ;
+;     -- Dedicated logic registers            ; 1643  ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 372   ;
+; Total memory bits                           ; 8192  ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 1675  ;
+; Total fan-out                               ; 22116 ;
+; Average fan-out                             ; 3.61  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                            ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                               ; Library Name ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------+--------------+
+; |Projeto1                                       ; 4083 (0)          ; 1643 (0)     ; 8192        ; 0            ; 0       ; 0         ; 372  ; 0            ; |Projeto1                                                                                                         ; work         ;
+;    |Banco_reg:bank|                             ; 1392 (1392)       ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Banco_reg:bank                                                                                          ; work         ;
+;    |Controle:contr|                             ; 209 (209)         ; 62 (62)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Controle:contr                                                                                          ;              ;
+;    |Instr_Reg:inReg|                            ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Instr_Reg:inReg                                                                                         ; work         ;
+;    |Memoria:Memor|                              ; 23 (23)           ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor                                                                                           ; work         ;
+;       |lpm_ram_dq:MEM_plus_One|                 ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM_plus_One                                                                   ; work         ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM_plus_One|altram:sram                                                       ; work         ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block                                  ;              ;
+;                |altsyncram_e1a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated   ;              ;
+;       |lpm_ram_dq:MEM_plus_Three|               ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM_plus_Three                                                                 ;              ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM_plus_Three|altram:sram                                                     ;              ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block                                ; work         ;
+;                |altsyncram_e1a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated ; work         ;
+;       |lpm_ram_dq:MEM_plus_Two|                 ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM_plus_Two                                                                   ;              ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM_plus_Two|altram:sram                                                       ;              ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block                                  ;              ;
+;                |altsyncram_e1a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated   ;              ;
+;       |lpm_ram_dq:MEM|                          ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM                                                                            ;              ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM|altram:sram                                                                ; work         ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block                                           ; work         ;
+;                |altsyncram_e1a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Memoria:Memor|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated            ; work         ;
+;    |ORR:orrn|                                   ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|ORR:orrn                                                                                                ; work         ;
+;    |RegDesloc:regDes|                           ; 585 (585)         ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|RegDesloc:regDes                                                                                        ; work         ;
+;    |Registrador:EPC|                            ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Registrador:EPC                                                                                         ; work         ;
+;    |Registrador:MemoriaData|                    ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Registrador:MemoriaData                                                                                 ; work         ;
+;    |Registrador:Pc|                             ; 16 (16)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Registrador:Pc                                                                                          ; work         ;
+;    |Registrador:RegAlu|                         ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Registrador:RegAlu                                                                                      ; work         ;
+;    |Registrador:RegiA|                          ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Registrador:RegiA                                                                                       ; work         ;
+;    |Registrador:RegiB|                          ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Registrador:RegiB                                                                                       ; work         ;
+;    |Registrador:mfhi|                           ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Registrador:mfhi                                                                                        ; work         ;
+;    |Registrador:mflo|                           ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Registrador:mflo                                                                                        ; work         ;
+;    |Ula32:Ula|                                  ; 241 (241)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|Ula32:Ula                                                                                               ; work         ;
+;    |XORR:Xorrn|                                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|XORR:Xorrn                                                                                              ; work         ;
+;    |complemento2:com2_1|                        ; 62 (62)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|complemento2:com2_1                                                                                     ; work         ;
+;    |complemento2:com2_2|                        ; 63 (63)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|complemento2:com2_2                                                                                     ; work         ;
+;    |concat_jmp:concat|                          ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|concat_jmp:concat                                                                                       ; work         ;
+;    |div:divis|                                  ; 426 (426)         ; 166 (166)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|div:divis                                                                                               ; work         ;
+;    |muX4:RegWr|                                 ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|muX4:RegWr                                                                                              ; work         ;
+;    |muX4:muxMemData|                            ; 24 (24)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|muX4:muxMemData                                                                                         ; work         ;
+;    |muX4:muxZero|                               ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|muX4:muxZero                                                                                            ; work         ;
+;    |mult:multip|                                ; 389 (389)         ; 71 (71)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|mult:multip                                                                                             ; work         ;
+;    |mux11:WrData|                               ; 221 (221)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|mux11:WrData                                                                                            ; work         ;
+;    |mux2:muxMFHI|                               ; 95 (95)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|mux2:muxMFHI                                                                                            ; work         ;
+;    |mux2:muxMFLO|                               ; 95 (95)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|mux2:muxMFLO                                                                                            ; work         ;
+;    |mux2:muxRS|                                 ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|mux2:muxRS                                                                                              ; work         ;
+;    |mux2:regEntr|                               ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|mux2:regEntr                                                                                            ; work         ;
+;    |mux3:muxA|                                  ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|mux3:muxA                                                                                               ; work         ;
+;    |mux3:muxN|                                  ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|mux3:muxN                                                                                               ; work         ;
+;    |mux4:muxB|                                  ; 48 (48)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|mux4:muxB                                                                                               ; work         ;
+;    |mux5:muxPC|                                 ; 37 (37)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|mux5:muxPC                                                                                              ; work         ;
+;    |mux6:muxALU|                                ; 89 (89)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Projeto1|mux6:muxALU                                                                                             ; work         ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                            ;
++--------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------+
+; Name                                                                                                               ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF            ;
++--------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------+
+; Memoria:Memor|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated|ALTSYNCRAM   ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
+; Memoria:Memor|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
+; Memoria:Memor|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated|ALTSYNCRAM   ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
+; Memoria:Memor|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated|ALTSYNCRAM            ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
++--------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------+
+; State Machine - |Projeto1|div:divis|estado                   ;
++----------------+--------------+----------------+-------------+
+; Name           ; estado.N_DIV ; estado.END_DIV ; estado.DIVI ;
++----------------+--------------+----------------+-------------+
+; estado.N_DIV   ; 0            ; 0              ; 0           ;
+; estado.DIVI    ; 1            ; 0              ; 1           ;
+; estado.END_DIV ; 1            ; 1              ; 0           ;
++----------------+--------------+----------------+-------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------+
+; State Machine - |Projeto1|mult:multip|estado                    ;
++-----------------+---------------+-----------------+-------------+
+; Name            ; estado.N_MULT ; estado.END_MULT ; estado.MULT ;
++-----------------+---------------+-----------------+-------------+
+; estado.N_MULT   ; 0             ; 0               ; 0           ;
+; estado.MULT     ; 1             ; 0               ; 1           ;
+; estado.END_MULT ; 1             ; 1               ; 0           ;
++-----------------+---------------+-----------------+-------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Projeto1|Controle:contr|estado                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ;
++-------------------------+---------------+--------------+--------------+--------------+-------------------+--------------+--------------+--------------+---------------+---------------+---------------+-------------+-------------+--------------+--------------+--------------+--------------+--------------+--------------+------------+----------------+----------------+----------------+-------------------+-------------------+-------------------+----------------+----------------+-----------+------------+-----------+-----------+---------------------+-----------+-----------+------------+--------------+--------------+-------------+-------------+-------------+-------------+-------------+------------------+-------------+-------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+---------------+---------------+---------------+--------------+--------------+-------------------------+-------------------------+--------------+
+; Name                    ; estado.INICIO ; estado.POP_6 ; estado.POP_5 ; estado.POP_4 ; estado.ESPERA_POP ; estado.POP_3 ; estado.POP_2 ; estado.POP_1 ; estado.PUSH_3 ; estado.PUSH_2 ; estado.PUSH_1 ; estado.MFLO ; estado.MFHI ; estado.DIV_2 ; estado.DIV_1 ; estado.MUL_2 ; estado.MUL_1 ; estado.SLT_2 ; estado.SLT_1 ; estado.RTE ; estado.EXCES_3 ; estado.EXCES_2 ; estado.EXCES_1 ; estado.ARIT_IMM_3 ; estado.ARIT_IMM_2 ; estado.ARIT_IMM_1 ; estado.SHIFT_2 ; estado.SHIFT_1 ; estado.JR ; estado.JAL ; estado.SB ; estado.SH ; estado.ESPERA_SH_SB ; estado.LH ; estado.LB ; estado.JMP ; estado.LUI_2 ; estado.LUI_1 ; estado.SW_3 ; estado.SW_2 ; estado.SW_1 ; estado.LW_4 ; estado.LW_3 ; estado.ESPERA_LW ; estado.LW_2 ; estado.LW_1 ; estado.BGT_2 ; estado.BGT_1 ; estado.BLE_2 ; estado.BLE_1 ; estado.BNE_2 ; estado.BNE_1 ; estado.BEQ_2 ; estado.BEQ_1 ; estado.ARIT_3 ; estado.ARIT_2 ; estado.ARIT_1 ; estado.BREAK ; estado.DECOD ; estado.ESPERA_PC_MEM4_1 ; estado.PC_MEMORIA_SOMA4 ; estado.RESET ;
++-------------------------+---------------+--------------+--------------+--------------+-------------------+--------------+--------------+--------------+---------------+---------------+---------------+-------------+-------------+--------------+--------------+--------------+--------------+--------------+--------------+------------+----------------+----------------+----------------+-------------------+-------------------+-------------------+----------------+----------------+-----------+------------+-----------+-----------+---------------------+-----------+-----------+------------+--------------+--------------+-------------+-------------+-------------+-------------+-------------+------------------+-------------+-------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+---------------+---------------+---------------+--------------+--------------+-------------------------+-------------------------+--------------+
+; estado.RESET            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 0            ;
+; estado.PC_MEMORIA_SOMA4 ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 1                       ; 1            ;
+; estado.ESPERA_PC_MEM4_1 ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 1                       ; 0                       ; 1            ;
+; estado.DECOD            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 1            ; 0                       ; 0                       ; 1            ;
+; estado.BREAK            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 1            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.ARIT_1           ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 1             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.ARIT_2           ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 1             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.ARIT_3           ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.BEQ_1            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.BEQ_2            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.BNE_1            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.BNE_2            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.BLE_1            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.BLE_2            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.BGT_1            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.BGT_2            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.LW_1             ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 1           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.LW_2             ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 1           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.ESPERA_LW        ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 1                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.LW_3             ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 1           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.LW_4             ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 1           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.SW_1             ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 1           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.SW_2             ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 1           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.SW_3             ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 1           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.LUI_1            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 1            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.LUI_2            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 1            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.JMP              ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 1          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.LB               ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 1         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.LH               ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 1         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.ESPERA_SH_SB     ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 1                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.SH               ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 1         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.SB               ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 1         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.JAL              ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 1          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.JR               ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 1         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.SHIFT_1          ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 1              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.SHIFT_2          ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 1              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.ARIT_IMM_1       ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 1                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.ARIT_IMM_2       ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 1                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.ARIT_IMM_3       ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 1                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.EXCES_1          ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 1              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.EXCES_2          ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 1              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.EXCES_3          ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 1              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.RTE              ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.SLT_1            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.SLT_2            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.MUL_1            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.MUL_2            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.DIV_1            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.DIV_2            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.MFHI             ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 1           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.MFLO             ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 1           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.PUSH_1           ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 1             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.PUSH_2           ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 1             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.PUSH_3           ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 1             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.POP_1            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 1            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.POP_2            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 1            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.POP_3            ; 0             ; 0            ; 0            ; 0            ; 0                 ; 1            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.ESPERA_POP       ; 0             ; 0            ; 0            ; 0            ; 1                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.POP_4            ; 0             ; 0            ; 0            ; 1            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.POP_5            ; 0             ; 0            ; 1            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.POP_6            ; 0             ; 1            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
+; estado.INICIO           ; 1             ; 0            ; 0            ; 0            ; 0                 ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0          ; 0              ; 0              ; 0              ; 0                 ; 0                 ; 0                 ; 0              ; 0              ; 0         ; 0          ; 0         ; 0         ; 0                   ; 0         ; 0         ; 0          ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                ; 0           ; 0           ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0             ; 0             ; 0            ; 0            ; 0                       ; 0                       ; 1            ;
++-------------------------+---------------+--------------+--------------+--------------+-------------------+--------------+--------------+--------------+---------------+---------------+---------------+-------------+-------------+--------------+--------------+--------------+--------------+--------------+--------------+------------+----------------+----------------+----------------+-------------------+-------------------+-------------------+----------------+----------------+-----------+------------+-----------+-----------+---------------------+-----------+-----------+------------+--------------+--------------+-------------+-------------+-------------+-------------+-------------+------------------+-------------+-------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+---------------+---------------+---------------+--------------+--------------+-------------------------+-------------------------+--------------+
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; div:divis|Divisor[63]                  ; Stuck at GND due to stuck port data_in ;
+; div:divis|estado.N_DIV                 ; Lost fanout                            ;
+; div:divis|estado.DIVI                  ; Lost fanout                            ;
+; mult:multip|estado.N_MULT              ; Lost fanout                            ;
+; mult:multip|estado.MULT                ; Lost fanout                            ;
+; Controle:contr|estado~4                ; Lost fanout                            ;
+; Controle:contr|estado~5                ; Lost fanout                            ;
+; Controle:contr|estado~6                ; Lost fanout                            ;
+; Controle:contr|estado~7                ; Lost fanout                            ;
+; Controle:contr|estado~8                ; Lost fanout                            ;
+; Controle:contr|estado~9                ; Lost fanout                            ;
+; Total Number of Removed Registers = 11 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1643  ;
+; Number of registers using Synchronous Clear  ; 140   ;
+; Number of registers using Synchronous Load   ; 73    ;
+; Number of registers using Asynchronous Clear ; 1643  ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1561  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; 3:1                ; 95 bits   ; 190 LEs       ; 95 LEs               ; 95 LEs                 ; Yes        ; |Projeto1|div:divis|Divisor[29]           ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 9 LEs                ; 6 LEs                  ; Yes        ; |Projeto1|Registrador:Pc|Saida[30]        ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; Yes        ; |Projeto1|Registrador:Pc|Saida[0]         ;
+; 8:1                ; 21 bits   ; 105 LEs       ; 84 LEs               ; 21 LEs                 ; Yes        ; |Projeto1|Registrador:Pc|Saida[8]         ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 24 LEs               ; 6 LEs                  ; Yes        ; |Projeto1|Registrador:Pc|Saida[2]         ;
+; 4:1                ; 64 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |Projeto1|mult:multip|produto[27]         ;
+; 4:1                ; 64 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; Yes        ; |Projeto1|div:divis|Resto[54]             ;
+; 6:1                ; 63 bits   ; 252 LEs       ; 189 LEs              ; 63 LEs                 ; Yes        ; |Projeto1|Registrador:mflo|Saida[6]       ;
+; 14:1               ; 13 bits   ; 117 LEs       ; 78 LEs               ; 39 LEs                 ; Yes        ; |Projeto1|RegDesloc:regDes|temp[6]        ;
+; 14:1               ; 13 bits   ; 117 LEs       ; 91 LEs               ; 26 LEs                 ; Yes        ; |Projeto1|RegDesloc:regDes|temp[18]       ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Projeto1|muX4:muxMemData|Mux16           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Projeto1|muX4:muxMemData|Mux3            ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |Projeto1|Controle:contr|prox_estado.MFLO ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Projeto1|mux4:muxB|Mux30                 ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |Projeto1|mux4:muxB|Mux8                  ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Projeto1|mux3:muxA|Mux25                 ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |Projeto1|muX4:RegWr|Mux3                 ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Projeto1|mult:multip|ShiftLeft0          ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |Projeto1|mult:multip|ShiftLeft0          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Projeto1|Controle:contr|prox_estado.LH   ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |Projeto1|mux3:muxN|Mux4                  ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 96 LEs               ; 64 LEs                 ; No         ; |Projeto1|mux5:muxPC|Mux22                ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |Projeto1|mux4:muxB|Mux26                 ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; No         ; |Projeto1|Ula32:Ula|Mux45                 ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 96 LEs               ; 64 LEs                 ; No         ; |Projeto1|Ula32:Ula|Mux23                 ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 48 LEs               ; 32 LEs                 ; No         ; |Projeto1|mux11:WrData|Mux22              ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 48 LEs               ; 32 LEs                 ; No         ; |Projeto1|mux11:WrData|Mux31              ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 96 LEs               ; 64 LEs                 ; No         ; |Projeto1|mux11:WrData|Mux9               ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |Projeto1|Banco_reg:bank|Mux10            ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |Projeto1|Banco_reg:bank|Mux36            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Memoria:Memor|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                    ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                     ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Memoria:Memor|LPM_RAM_DQ:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                             ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                              ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Memoria:Memor|LPM_RAM_DQ:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                             ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                              ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Memoria:Memor|LPM_RAM_DQ:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                               ;
++---------------------------------+--------------------+------+------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                ;
++---------------------------------+--------------------+------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memoria:Memor|LPM_RAM_DQ:MEM ;
++------------------------+----------------+---------------------------------+
+; Parameter Name         ; Value          ; Type                            ;
++------------------------+----------------+---------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                  ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                  ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                  ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                         ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                         ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                         ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                         ;
+; USE_EAB                ; ON             ; Untyped                         ;
+; DEVICE_FAMILY          ; Cyclone II     ; Untyped                         ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                         ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                  ;
++------------------------+----------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memoria:Memor|LPM_RAM_DQ:MEM_plus_One ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                           ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                           ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                           ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                                  ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                  ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                                  ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                                  ;
+; USE_EAB                ; ON             ; Untyped                                  ;
+; DEVICE_FAMILY          ; Cyclone II     ; Untyped                                  ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memoria:Memor|LPM_RAM_DQ:MEM_plus_Two ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                           ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                           ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                           ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                                  ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                  ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                                  ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                                  ;
+; USE_EAB                ; ON             ; Untyped                                  ;
+; DEVICE_FAMILY          ; Cyclone II     ; Untyped                                  ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memoria:Memor|LPM_RAM_DQ:MEM_plus_Three ;
++------------------------+----------------+--------------------------------------------+
+; Parameter Name         ; Value          ; Type                                       ;
++------------------------+----------------+--------------------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                             ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                             ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                             ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                                    ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                    ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                                    ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                                    ;
+; USE_EAB                ; ON             ; Untyped                                    ;
+; DEVICE_FAMILY          ; Cyclone II     ; Untyped                                    ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                                    ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
++------------------------+----------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: muX4:muxZero ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; W              ; 1     ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: muX4:muxMemData ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; W              ; 32    ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: muX4:RegWr ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; W              ; 5     ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux3:muxA ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; W              ; 32    ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux3:muxN ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; W              ; 5     ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2:muxRS ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; W              ; 5     ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2:muxMFHI ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; W              ; 32    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2:muxMFLO ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; W              ; 32    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2:regEntr ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; W              ; 32    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "concat_jmp:concat"                                                                                                                                  ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                            ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; offset ; Input ; Warning  ; Input port expression (27 bits) is smaller than the input port (28 bits) it drives.  Extra input bit(s) "offset[27..27]" will be connected to GND. ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "mux2:muxRS"          ;
++---------------+-------+----------+--------------+
+; Port          ; Type  ; Severity ; Details      ;
++---------------+-------+----------+--------------+
+; segundo[4..2] ; Input ; Info     ; Stuck at VCC ;
+; segundo[1]    ; Input ; Info     ; Stuck at GND ;
+; segundo[0]    ; Input ; Info     ; Stuck at VCC ;
++---------------+-------+----------+--------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "mux3:muxA"      ;
++----------+-------+----------+--------------+
+; Port     ; Type  ; Severity ; Details      ;
++----------+-------+----------+--------------+
+; terceiro ; Input ; Info     ; Stuck at GND ;
++----------+-------+----------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "muX4:RegWr"                                                                                                                                                                                 ;
++----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port           ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; terceiro       ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (5 bits) it drives.  The 27 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; terceiro[4..0] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; quarto         ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (5 bits) it drives.  The 27 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; quarto[4..2]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; quarto[1]      ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; quarto[0]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; selecao        ; Input ; Warning  ; Input port expression (3 bits) is wider than the input port (2 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts.   ;
++----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "mux4:muxB"            ;
++----------------+-------+----------+--------------+
+; Port           ; Type  ; Severity ; Details      ;
++----------------+-------+----------+--------------+
+; segundo[31..3] ; Input ; Info     ; Stuck at GND ;
+; segundo[1..0]  ; Input ; Info     ; Stuck at GND ;
+; segundo[2]     ; Input ; Info     ; Stuck at VCC ;
++----------------+-------+----------+--------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "mux5:muxPC"            ;
++-----------------+-------+----------+--------------+
+; Port            ; Type  ; Severity ; Details      ;
++-----------------+-------+----------+--------------+
+; terceiro[7..2]  ; Input ; Info     ; Stuck at VCC ;
+; terceiro[31..8] ; Input ; Info     ; Stuck at GND ;
+; terceiro[1]     ; Input ; Info     ; Stuck at GND ;
+; terceiro[0]     ; Input ; Info     ; Stuck at VCC ;
+; quarto[7..1]    ; Input ; Info     ; Stuck at VCC ;
+; quarto[31..8]   ; Input ; Info     ; Stuck at GND ;
+; quarto[0]       ; Input ; Info     ; Stuck at GND ;
+; quinto[7..0]    ; Input ; Info     ; Stuck at VCC ;
+; quinto[31..8]   ; Input ; Info     ; Stuck at GND ;
++-----------------+-------+----------+--------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "mux6:muxALU"        ;
++--------------+-------+----------+--------------+
+; Port         ; Type  ; Severity ; Details      ;
++--------------+-------+----------+--------------+
+; sexto[31..8] ; Input ; Info     ; Stuck at GND ;
++--------------+-------+----------+--------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "mux11:WrData"          ;
++-----------------+-------+----------+--------------+
+; Port            ; Type  ; Severity ; Details      ;
++-----------------+-------+----------+--------------+
+; terceiro[15..0] ; Input ; Info     ; Stuck at GND ;
+; quarto[31..16]  ; Input ; Info     ; Stuck at GND ;
+; quinto[31..8]   ; Input ; Info     ; Stuck at GND ;
+; oitavo          ; Input ; Info     ; Stuck at GND ;
+; nono[31..1]     ; Input ; Info     ; Stuck at GND ;
+; nono[0]         ; Input ; Info     ; Stuck at VCC ;
+; doze[7..5]      ; Input ; Info     ; Stuck at VCC ;
+; doze[1..0]      ; Input ; Info     ; Stuck at VCC ;
+; doze[31..8]     ; Input ; Info     ; Stuck at GND ;
+; doze[4..2]      ; Input ; Info     ; Stuck at GND ;
++-----------------+-------+----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Ula32:Ula"                                                                                                   ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                  ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; negativo ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "desloEsq28:jmp"                                                                                                                   ;
++---------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                        ;
++---------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+; saida28 ; Output ; Warning  ; Output or bidir port (28 bits) is wider than the port expression (27 bits) it drives; bit(s) "saida28[27..27]" have no fanouts ;
++---------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Controle:contr"                                                                                                                                                                ;
++---------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                                                                               ;
++---------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; muxA          ; Output ; Warning  ; Output or bidir port (2 bits) is smaller than the port expression (3 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
+; muxRegEscr[2] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                   ;
++---------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Sat May 19 12:52:22 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Projeto1 -c Projeto1
+Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: Found 1 design units, including 1 entities, in source file projeto1.sv
+    Info: Found entity 1: Projeto1
+Info: Found 1 design units, including 1 entities, in source file controle.sv
+    Info: Found entity 1: Controle
+Info: Found 3 design units, including 1 entities, in source file memoria.vhd
+    Info: Found design unit 1: ram_constants
+    Info: Found design unit 2: Memoria-behavioral_arch
+    Info: Found entity 1: Memoria
+Info: Found 2 design units, including 1 entities, in source file instr_reg.vhd
+    Info: Found design unit 1: Instr_Reg-behavioral_arch
+    Info: Found entity 1: Instr_Reg
+Info: Found 2 design units, including 1 entities, in source file banco_reg.vhd
+    Info: Found design unit 1: Banco_reg-behavioral_arch
+    Info: Found entity 1: Banco_reg
+Info: Found 2 design units, including 1 entities, in source file ula32.vhd
+    Info: Found design unit 1: Ula32-behavioral
+    Info: Found entity 1: Ula32
+Info: Found 2 design units, including 1 entities, in source file regdesloc.vhd
+    Info: Found design unit 1: RegDesloc-behavioral_arch
+    Info: Found entity 1: RegDesloc
+Info: Found 1 design units, including 1 entities, in source file div.sv
+    Info: Found entity 1: div
+Info: Found 1 design units, including 1 entities, in source file mult.sv
+    Info: Found entity 1: mult
+Info: Found 1 design units, including 1 entities, in source file mux2.sv
+    Info: Found entity 1: mux2
+Info: Found 1 design units, including 1 entities, in source file mux3.sv
+    Info: Found entity 1: mux3
+Info: Found 1 design units, including 1 entities, in source file mux4.sv
+    Info: Found entity 1: mux4
+Info: Found 1 design units, including 1 entities, in source file mux_4.sv
+    Info: Found entity 1: muX4
+Info: Found 1 design units, including 1 entities, in source file mux5.sv
+    Info: Found entity 1: mux5
+Info: Found 1 design units, including 1 entities, in source file mux6.sv
+    Info: Found entity 1: mux6
+Info: Found 1 design units, including 1 entities, in source file mux7.sv
+    Info: Found entity 1: mux7
+Info: Found 1 design units, including 1 entities, in source file mux11.sv
+    Info: Found entity 1: mux11
+Info: Found 1 design units, including 1 entities, in source file desloesq28.sv
+    Info: Found entity 1: desloEsq28
+Info: Found 1 design units, including 1 entities, in source file desloesq32.sv
+    Info: Found entity 1: desloEsq32
+Info: Found 1 design units, including 1 entities, in source file complemento2.sv
+    Info: Found entity 1: complemento2
+Info: Found 2 design units, including 1 entities, in source file registrador.vhd
+    Info: Found design unit 1: Registrador-behavioral_arch
+    Info: Found entity 1: Registrador
+Info: Found 1 design units, including 1 entities, in source file sinalextendido.sv
+    Info: Found entity 1: SinalExtendido
+Info: Found 1 design units, including 1 entities, in source file concat_jmp.sv
+    Info: Found entity 1: concat_jmp
+Info: Found 1 design units, including 1 entities, in source file annd.sv
+    Info: Found entity 1: ANND
+Info: Found 1 design units, including 1 entities, in source file orr.sv
+    Info: Found entity 1: ORR
+Info: Found 1 design units, including 1 entities, in source file xorr.sv
+    Info: Found entity 1: XORR
+Info: Elaborating entity "Projeto1" for the top level hierarchy
+Info: Elaborating entity "Controle" for hierarchy "Controle:contr"
+Info: Elaborating entity "Memoria" for hierarchy "Memoria:Memor"
+Info: Elaborating entity "LPM_RAM_DQ" for hierarchy "Memoria:Memor|LPM_RAM_DQ:MEM"
+Info: Elaborated megafunction instantiation "Memoria:Memor|LPM_RAM_DQ:MEM"
+Info: Instantiated megafunction "Memoria:Memor|LPM_RAM_DQ:MEM" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "8"
+    Info: Parameter "LPM_WIDTHAD" = "8"
+    Info: Parameter "LPM_NUMWORDS" = "0"
+    Info: Parameter "LPM_INDATA" = "REGISTERED"
+    Info: Parameter "LPM_ADDRESS_CONTROL" = "REGISTERED"
+    Info: Parameter "LPM_OUTDATA" = "REGISTERED"
+    Info: Parameter "LPM_FILE" = "instrucoes.mif"
+    Info: Parameter "LPM_TYPE" = "LPM_RAM_DQ"
+    Info: Parameter "USE_EAB" = "ON"
+    Info: Parameter "INTENDED_DEVICE_FAMILY" = "UNUSED"
+    Info: Parameter "LPM_HINT" = "UNUSED"
+Info: Elaborating entity "altram" for hierarchy "Memoria:Memor|LPM_RAM_DQ:MEM|altram:sram"
+Warning: Assertion warning: altram does not support Cyclone II device family -- attempting best-case memory conversions, but power-up states and read during write behavior will be different for Cyclone II devices
+Info: Elaborated megafunction instantiation "Memoria:Memor|LPM_RAM_DQ:MEM|altram:sram", which is child of megafunction instantiation "Memoria:Memor|LPM_RAM_DQ:MEM"
+Info: Elaborating entity "altsyncram" for hierarchy "Memoria:Memor|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block"
+Info: Elaborated megafunction instantiation "Memoria:Memor|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block", which is child of megafunction instantiation "Memoria:Memor|LPM_RAM_DQ:MEM"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_e1a1.tdf
+    Info: Found entity 1: altsyncram_e1a1
+Info: Elaborating entity "altsyncram_e1a1" for hierarchy "Memoria:Memor|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_e1a1:auto_generated"
+Info: Elaborating entity "Registrador" for hierarchy "Registrador:Pc"
+Info: Elaborating entity "Instr_Reg" for hierarchy "Instr_Reg:inReg"
+Info: Elaborating entity "RegDesloc" for hierarchy "RegDesloc:regDes"
+Info: Elaborating entity "desloEsq32" for hierarchy "desloEsq32:SigEx"
+Info: Elaborating entity "desloEsq28" for hierarchy "desloEsq28:jmp"
+Info: Elaborating entity "Ula32" for hierarchy "Ula32:Ula"
+Info: Elaborating entity "mux11" for hierarchy "mux11:WrData"
+Info: Elaborating entity "mux6" for hierarchy "mux6:muxALU"
+Info: Elaborating entity "mux5" for hierarchy "mux5:muxPC"
+Info: Elaborating entity "mux4" for hierarchy "mux4:muxB"
+Info: Elaborating entity "muX4" for hierarchy "muX4:muxZero"
+Info: Elaborating entity "muX4" for hierarchy "muX4:muxMemData"
+Info: Elaborating entity "muX4" for hierarchy "muX4:RegWr"
+Info: Elaborating entity "mux3" for hierarchy "mux3:muxA"
+Info: Elaborating entity "mux3" for hierarchy "mux3:muxN"
+Info: Elaborating entity "mux2" for hierarchy "mux2:muxRS"
+Info: Elaborating entity "mux2" for hierarchy "mux2:muxMFHI"
+Info: Elaborating entity "SinalExtendido" for hierarchy "SinalExtendido:sinEx"
+Info: Elaborating entity "Banco_reg" for hierarchy "Banco_reg:bank"
+Info: Elaborating entity "concat_jmp" for hierarchy "concat_jmp:concat"
+Info: Elaborating entity "ANND" for hierarchy "ANND:adn"
+Info: Elaborating entity "ORR" for hierarchy "ORR:orrn"
+Info: Elaborating entity "XORR" for hierarchy "XORR:Xorrn"
+Info: Elaborating entity "complemento2" for hierarchy "complemento2:com2_1"
+Info: Elaborating entity "mult" for hierarchy "mult:multip"
+Info: Elaborating entity "div" for hierarchy "div:divis"
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "MuxA[2]" is missing source, defaulting to GND
+Warning: 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info: 10 registers lost all their fanouts during netlist optimizations. The first 10 are displayed below.
+    Info: Register "div:divis|estado.N_DIV" lost all its fanouts during netlist optimizations.
+    Info: Register "div:divis|estado.DIVI" lost all its fanouts during netlist optimizations.
+    Info: Register "mult:multip|estado.N_MULT" lost all its fanouts during netlist optimizations.
+    Info: Register "mult:multip|estado.MULT" lost all its fanouts during netlist optimizations.
+    Info: Register "Controle:contr|estado~4" lost all its fanouts during netlist optimizations.
+    Info: Register "Controle:contr|estado~5" lost all its fanouts during netlist optimizations.
+    Info: Register "Controle:contr|estado~6" lost all its fanouts during netlist optimizations.
+    Info: Register "Controle:contr|estado~7" lost all its fanouts during netlist optimizations.
+    Info: Register "Controle:contr|estado~8" lost all its fanouts during netlist optimizations.
+    Info: Register "Controle:contr|estado~9" lost all its fanouts during netlist optimizations.
+Info: Generated suppressed messages file C:/Users/jclc/Desktop/Projeto2/Projeto1.map.smsg
+Info: Implemented 5732 device resources after synthesis - the final resource count might be different
+    Info: Implemented 2 input pins
+    Info: Implemented 370 output pins
+    Info: Implemented 5328 logic cells
+    Info: Implemented 32 RAM segments
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 279 megabytes
+    Info: Processing ended: Sat May 19 12:52:39 2018
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:17
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/jclc/Desktop/Projeto2/Projeto1.map.smsg.
+
+

@@ -1,0 +1,8 @@
+module SinalExtendido (input logic [15:0] Address, output logic [31:0] AddresExt);
+	always_comb begin
+		if(Address[15] == 1'b1)
+			AddresExt = 32'b11111111111111110000000000000000 + Address;//negativo***
+		else
+			AddresExt = 32'b00000000000000000000000000000000 + Address;//positivo***
+	end
+endmodule: SinalExtendido

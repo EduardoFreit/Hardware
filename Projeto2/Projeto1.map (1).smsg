@@ -1,0 +1,18 @@
+Info (10281): Verilog HDL Declaration information at Projeto1.sv(2): object "PC" differs only in case from object "Pc" in the same scope
+Info (10281): Verilog HDL Declaration information at Projeto1.sv(13): object "MuxALU" differs only in case from object "muxALU" in the same scope
+Info (10281): Verilog HDL Declaration information at Projeto1.sv(13): object "MuxPC" differs only in case from object "muxPC" in the same scope
+Info (10281): Verilog HDL Declaration information at Projeto1.sv(14): object "MuxB" differs only in case from object "muxB" in the same scope
+Info (10281): Verilog HDL Declaration information at Projeto1.sv(14): object "MuxZero" differs only in case from object "muxZero" in the same scope
+Info (10281): Verilog HDL Declaration information at Projeto1.sv(14): object "MuxMemData" differs only in case from object "muxMemData" in the same scope
+Info (10281): Verilog HDL Declaration information at Projeto1.sv(13): object "MuxA" differs only in case from object "muxA" in the same scope
+Info (10281): Verilog HDL Declaration information at Projeto1.sv(13): object "MuxN" differs only in case from object "muxN" in the same scope
+Info (10281): Verilog HDL Declaration information at Projeto1.sv(15): object "MuxRs" differs only in case from object "muxRS" in the same scope
+Info (10281): Verilog HDL Declaration information at Projeto1.sv(15): object "MuxMfhi" differs only in case from object "muxMFHI" in the same scope
+Info (10281): Verilog HDL Declaration information at Projeto1.sv(15): object "MuxMflo" differs only in case from object "muxMFLO" in the same scope
+Warning (10268): Verilog HDL information at Controle.sv(27): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at Controle.sv(1): object "Reset" differs only in case from object "RESET" in the same scope
+Info (10281): Verilog HDL Declaration information at Controle.sv(4): object "Estado" differs only in case from object "estado" in the same scope
+Warning (10268): Verilog HDL information at div.sv(8): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at div.sv(1): object "resto" differs only in case from object "Resto" in the same scope
+Info (10281): Verilog HDL Declaration information at div.sv(1): object "quociente" differs only in case from object "Quociente" in the same scope
+Warning (10492): VHDL Process Statement warning at RegDesloc.vhd(1102): signal "temp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
